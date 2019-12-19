@@ -126,8 +126,10 @@
     <ClInclude Include="error.h" />
     <ClInclude Include="geometry.h" />
     <ClInclude Include="logging.h" />
+    <ClInclude Include="medium.h" />
     <ClInclude Include="render.h" />
     <ClInclude Include="shape.h" />
+    <ClInclude Include="sphere.h" />
     <ClInclude Include="stringprint.h" />
     <ClInclude Include="transform.h" />
   </ItemGroup>
@@ -135,6 +137,7 @@
     <ClCompile Include="error.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="shape.cpp" />
+    <ClCompile Include="sphere.cpp" />
     <ClCompile Include="transform.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

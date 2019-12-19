@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="源文件\shapes">
+      <UniqueIdentifier>{c30aee0b-3261-4741-8c5b-e7df247e401e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="geometry.h">
@@ -36,6 +39,12 @@
     <ClInclude Include="shape.h">
       <Filter>源文件</Filter>
     </ClInclude>
+    <ClInclude Include="medium.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="sphere.h">
+      <Filter>源文件\shapes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="transform.cpp">
@@ -49,6 +58,9 @@
     </ClCompile>
     <ClCompile Include="shape.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="sphere.cpp">
+      <Filter>源文件\shapes</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
