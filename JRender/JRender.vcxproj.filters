@@ -45,6 +45,21 @@
     <ClInclude Include="sphere.h">
       <Filter>源文件\shapes</Filter>
     </ClInclude>
+    <ClInclude Include="cylinder.h">
+      <Filter>源文件\shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="disk.h">
+      <Filter>源文件\shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="cone.h">
+      <Filter>源文件\shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="hyperboloid.h">
+      <Filter>源文件\shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="paraboloid.h">
+      <Filter>源文件\shapes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="transform.cpp">
@@ -60,6 +75,21 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="sphere.cpp">
+      <Filter>源文件\shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="cylinder.cpp">
+      <Filter>源文件\shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="disk.cpp">
+      <Filter>源文件\shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="cone.cpp">
+      <Filter>源文件\shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="hyperboloid.cpp">
+      <Filter>源文件\shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="paraboloid.cpp">
       <Filter>源文件\shapes</Filter>
     </ClCompile>
   </ItemGroup>

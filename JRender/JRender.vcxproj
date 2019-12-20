@@ -123,10 +123,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="cone.h" />
+    <ClInclude Include="cylinder.h" />
+    <ClInclude Include="disk.h" />
     <ClInclude Include="error.h" />
     <ClInclude Include="geometry.h" />
+    <ClInclude Include="hyperboloid.h" />
     <ClInclude Include="logging.h" />
     <ClInclude Include="medium.h" />
+    <ClInclude Include="paraboloid.h" />
     <ClInclude Include="render.h" />
     <ClInclude Include="shape.h" />
     <ClInclude Include="sphere.h" />
@@ -134,8 +139,13 @@
     <ClInclude Include="transform.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="cone.cpp" />
+    <ClCompile Include="cylinder.cpp" />
+    <ClCompile Include="disk.cpp" />
     <ClCompile Include="error.cpp" />
+    <ClCompile Include="hyperboloid.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="paraboloid.cpp" />
     <ClCompile Include="shape.cpp" />
     <ClCompile Include="sphere.cpp" />
     <ClCompile Include="transform.cpp" />

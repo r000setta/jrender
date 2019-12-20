@@ -731,6 +731,11 @@ namespace jrender {
 		if (tzMax < tMax) tMax = tzMax;
 		return (tMin < ray.tMax) && (tMax > 0);
 	}
+
+	template <typename T, typename U>
+	inline Vector3<T> operator*(U s, const Vector3<T>& v) {
+		return v * s;
+	}
 }
 
 
