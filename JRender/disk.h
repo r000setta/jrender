@@ -22,6 +22,4 @@ namespace jrender {
 		const Float height, radius, innerRadius, phiMax;
 	};
 }
-
-
 #endif // !JRENDER_SHAPE_DISK_H

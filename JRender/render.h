@@ -76,7 +76,7 @@ namespace jrender {
 
 	typedef float Float;
 	static Float Pi = 3.14159265358979323846;
-//#define MachineEpsilon (std::numeric_limits<Float>::epsilon()*0.5)
+	//#define MachineEpsilon (std::numeric_limits<Float>::epsilon()*0.5)
 #define Infinity std::numeric_limits<Float>::infinity()
 	inline Float Radians(Float deg) {
 		return (Pi / 180) * deg;
@@ -86,7 +86,7 @@ namespace jrender {
 		return (n * MachineEpsilon) / (1 - n * MachineEpsilon);
 	}*/
 
-	template <typename T,typename U,typename V>
+	template <typename T, typename U, typename V>
 	inline T Clamp(T val, U low, V high) {
 		if (val < low)
 			return low;
@@ -95,8 +95,6 @@ namespace jrender {
 		else
 			return val;
 	}
-
-
 }
 
 #endif

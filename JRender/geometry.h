@@ -485,12 +485,120 @@ namespace jrender {
 	class Normal3 {
 	public:
 		Normal3() { x = y = z = 0; }
-		Normal3(T xx, T yy, T zz) :x(xx), y(yy), z(zz) {}
-		bool HasNaNs() const { return isNaN(x) || isNaN(y) || isNaN(z); }
-
+		Normal3(T xx, T yy, T zz) : x(xx), y(yy), z(zz) { DCHECK(!HasNaNs()); }
 		Normal3<T> operator-() const { return Normal3(-x, -y, -z); }
+		Normal3<T> operator+(const Normal3<T>& n) const {
+			//DCHECK(!n.HasNaNs());
+			return Normal3<T>(x + n.x, y + n.y, z + n.z);
+		}
+
+		Normal3<T>& operator+=(const Normal3<T>& n) {
+			//DCHECK(!n.HasNaNs());
+			x += n.x;
+			y += n.y;
+			z += n.z;
+			return *this;
+		}
+		Normal3<T> operator-(const Normal3<T>& n) const {
+			//DCHECK(!n.HasNaNs());
+			return Normal3<T>(x - n.x, y - n.y, z - n.z);
+		}
+
+		Normal3<T>& operator-=(const Normal3<T>& n) {
+			//DCHECK(!n.HasNaNs());
+			x -= n.x;
+			y -= n.y;
+			z -= n.z;
+			return *this;
+		}
+		bool HasNaNs() const { return isNaN(x) || isNaN(y) || isNaN(z); }
+		template <typename U>
+		Normal3<T> operator*(U f) const {
+			return Normal3<T>(f * x, f * y, f * z);
+		}
+
+		template <typename U>
+		Normal3<T>& operator*=(U f) {
+			x *= f;
+			y *= f;
+			z *= f;
+			return *this;
+		}
+		template <typename U>
+		Normal3<T> operator/(U f) const {
+			//CHECK_NE(f, 0);
+			Float inv = (Float)1 / f;
+			return Normal3<T>(x * inv, y * inv, z * inv);
+		}
+
+		template <typename U>
+		Normal3<T>& operator/=(U f) {
+			//CHECK_NE(f, 0);
+			Float inv = (Float)1 / f;
+			x *= inv;
+			y *= inv;
+			z *= inv;
+			return *this;
+		}
+		Float LengthSquared() const { return x * x + y * y + z * z; }
+		Float Length() const { return std::sqrt(LengthSquared()); }
+
+#ifndef NDEBUG
+		Normal3<T>(const Normal3<T>& n) {
+			//DCHECK(!n.HasNaNs());
+			x = n.x;
+			y = n.y;
+			z = n.z;
+		}
+
+		Normal3<T>& operator=(const Normal3<T>& n) {
+			//DCHECK(!n.HasNaNs());
+			x = n.x;
+			y = n.y;
+			z = n.z;
+			return *this;
+		}
+#endif  // !NDEBUG
+		explicit Normal3<T>(const Vector3<T>& v) : x(v.x), y(v.y), z(v.z) {
+			//DCHECK(!v.HasNaNs());
+		}
+		bool operator==(const Normal3<T>& n) const {
+			return x == n.x && y == n.y && z == n.z;
+		}
+		bool operator!=(const Normal3<T>& n) const {
+			return x != n.x || y != n.y || z != n.z;
+		}
+
+		T operator[](int i) const {
+			//DCHECK(i >= 0 && i <= 2);
+			if (i == 0) return x;
+			if (i == 1) return y;
+			return z;
+		}
+
+		T& operator[](int i) {
+			//DCHECK(i >= 0 && i <= 2);
+			if (i == 0) return x;
+			if (i == 1) return y;
+			return z;
+		}
+
+		// Normal3 Public Data
 		T x, y, z;
 	};
+	template <typename T>
+	inline std::ostream& operator<<(std::ostream& os, const Normal3<T>& v) {
+		os << "[ " << v.x << ", " << v.y << ", " << v.z << " ]";
+		return os;
+	}
+
+	template <>
+	inline std::ostream& operator<<(std::ostream& os, const Normal3<Float>& v) {
+		os << StringPrintf("[ %f, %f, %f ]", v.x, v.y, v.z);
+		return os;
+	}
+
+	typedef Normal3<Float> Normal3f;
 
 	class Ray {
 	public:
@@ -735,6 +843,18 @@ namespace jrender {
 	template <typename T, typename U>
 	inline Vector3<T> operator*(U s, const Vector3<T>& v) {
 		return v * s;
+	}
+
+	inline Float Lerp(Float t, Float v1, Float v2) { return (1 - t) * v1 + t * v2; }
+
+	template <typename T>
+	Point3<T> Lerp(Float t, const Point3<T>& p0, const Point3<T>& p1) {
+		return (1 - t) * p0 + t * p1;
+	}
+
+	template <typename T>
+	inline Float Distance(const Point3<T>& p1, const Point3<T>& p2) {
+		return (p1 - p2).Length();
 	}
 }
 

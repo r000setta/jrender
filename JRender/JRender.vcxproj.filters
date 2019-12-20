@@ -60,6 +60,12 @@
     <ClInclude Include="paraboloid.h">
       <Filter>源文件\shapes</Filter>
     </ClInclude>
+    <ClInclude Include="triangle.h">
+      <Filter>源文件\shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="curve.h">
+      <Filter>源文件\shapes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="transform.cpp">
@@ -90,6 +96,12 @@
       <Filter>源文件\shapes</Filter>
     </ClCompile>
     <ClCompile Include="paraboloid.cpp">
+      <Filter>源文件\shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="triangle.cpp">
+      <Filter>源文件\shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="curve.cpp">
       <Filter>源文件\shapes</Filter>
     </ClCompile>
   </ItemGroup>

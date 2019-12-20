@@ -124,6 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="cone.h" />
+    <ClInclude Include="curve.h" />
     <ClInclude Include="cylinder.h" />
     <ClInclude Include="disk.h" />
     <ClInclude Include="error.h" />
@@ -137,9 +138,11 @@
     <ClInclude Include="sphere.h" />
     <ClInclude Include="stringprint.h" />
     <ClInclude Include="transform.h" />
+    <ClInclude Include="triangle.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cone.cpp" />
+    <ClCompile Include="curve.cpp" />
     <ClCompile Include="cylinder.cpp" />
     <ClCompile Include="disk.cpp" />
     <ClCompile Include="error.cpp" />
@@ -149,6 +152,7 @@
     <ClCompile Include="shape.cpp" />
     <ClCompile Include="sphere.cpp" />
     <ClCompile Include="transform.cpp" />
+    <ClCompile Include="triangle.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
