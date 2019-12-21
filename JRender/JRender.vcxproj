@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -124,6 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="cone.h" />
+    <ClInclude Include="core.h" />
     <ClInclude Include="curve.h" />
     <ClInclude Include="cylinder.h" />
     <ClInclude Include="disk.h" />
@@ -135,6 +136,7 @@
     <ClInclude Include="paraboloid.h" />
     <ClInclude Include="render.h" />
     <ClInclude Include="shape.h" />
+    <ClInclude Include="spectrum.h" />
     <ClInclude Include="sphere.h" />
     <ClInclude Include="stringprint.h" />
     <ClInclude Include="transform.h" />
