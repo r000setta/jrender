@@ -110,5 +110,8 @@
     <ClCompile Include="curve.cpp">
       <Filter>源文件\shapes</Filter>
     </ClCompile>
+    <ClCompile Include="spectrum.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

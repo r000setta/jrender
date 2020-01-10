@@ -74,6 +74,8 @@ namespace jrender {
 	class Bounds3;
 	class Transform;
 
+	typedef RGBSpectrum Spectrum;
+
 	typedef float Float;
 	static Float Pi = 3.14159265358979323846;
 	//#define MachineEpsilon (std::numeric_limits<Float>::epsilon()*0.5)
@@ -95,6 +97,7 @@ namespace jrender {
 		else
 			return val;
 	}
+	inline Float Lerp(Float t, Float v1, Float v2) { return (1 - t) * v1 + t * v2; }
 }
 
 #endif

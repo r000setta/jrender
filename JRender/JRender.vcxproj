@@ -152,6 +152,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="paraboloid.cpp" />
     <ClCompile Include="shape.cpp" />
+    <ClCompile Include="spectrum.cpp" />
     <ClCompile Include="sphere.cpp" />
     <ClCompile Include="transform.cpp" />
     <ClCompile Include="triangle.cpp" />
