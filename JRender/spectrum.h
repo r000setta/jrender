@@ -41,6 +41,7 @@ namespace jrender {
 	extern const Float CIE_Z[nCIESamples];
 	extern const Float CIE_lambda[nCIESamples];
 	static const Float CIE_Y_integral = 106.856895;
+
 	template <int nSpectrumSamples>
 	class CoefficientSpectrum {
 	public:
@@ -183,8 +184,6 @@ namespace jrender {
 			return true;
 		}
 
-
-
 		Float& operator[](int i) {
 			//DCHECK(i >= 0 && i < nSpectrumSamples);
 			return c[i];
@@ -262,6 +261,12 @@ namespace jrender {
 			return yy * Float(sampledLambdaEnd - sampledLambdaStart) / Float(nSpectralSamples);
 		}
 
+		void ToRGB(Float rgb[3]) const {
+			Float xyz[3];
+			ToXYZ(xyz);
+			XYZToRGB(xyz, rgb);
+		}
+
 	private:
 		static SampledSpectrum X, Y, Z;
 		static SampledSpectrum rgbRefl2SpectWhite, rgbRefl2SpectCyan;
@@ -273,6 +278,34 @@ namespace jrender {
 		static SampledSpectrum rgbIllum2SpectRed, rgbIllum2SpectGreen;
 		static SampledSpectrum rgbIllum2SpectBlue;
 	};
-}
 
+	class RGBSpectrum :public CoefficientSpectrum<3> {
+		using CoefficientSpectrum<3>::c;
+	public:
+		RGBSpectrum(Float v = 0.f) :CoefficientSpectrum<3>(v){}
+		RGBSpectrum(const CoefficientSpectrum<3>& v) : CoefficientSpectrum<3>(v) {}
+		RGBSpectrum(const RGBSpectrum& s,
+			SpectrumType type = SpectrumType::Reflectance) {
+			*this = s;
+		}
+		static RGBSpectrum FromRGB(const Float rgb[3],
+			SpectrumType type = SpectrumType::Reflectance) {
+			RGBSpectrum s;
+			s.c[0] = rgb[0];
+			s.c[1] = rgb[1];
+			s.c[2] = rgb[2];
+			return s;
+		}
+
+		void ToRGB(Float* rgb) const {
+			rgb[0] = c[0];
+			rgb[1] = c[1];
+			rgb[2] = c[2];
+		}
+
+		const RGBSpectrum& ToRGBSpectrum() const { return *this; }
+		
+	};
+
+}
 #endif // !JRENDER_CORE_SPECTRUM_H

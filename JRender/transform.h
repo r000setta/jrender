@@ -162,6 +162,14 @@ namespace jrender {
 		Matrix4x4 m, mInv;
 	};
 
+	class AnimatedTransform {
+	public:
+		AnimatedTransform(const Transform* startTransform, Float startTime,
+			const Transform* endTransform, Float endTime);
+		static void Decompose(const Matrix4x4& m, Vector3f* T);	//TODO
+		void Interpolate(Float time, Transform* t) const;
+
+	};
 	Matrix4x4 Inverse(const Matrix4x4& m);
 	Transform Translate(const Vector3f& delta);
 	Transform Scale(Float x, Float y, Float z);

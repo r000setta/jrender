@@ -123,6 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="camera.h" />
     <ClInclude Include="cone.h" />
     <ClInclude Include="core.h" />
     <ClInclude Include="curve.h" />
